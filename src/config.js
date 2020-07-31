@@ -13,6 +13,7 @@ const config = {
   BROWSER_EXECUTABLE_PATH: process.env.BROWSER_EXECUTABLE_PATH,
   API_TOKENS: [],
   ALLOW_URLS: [],
+  USER_AGENT: 'HeadlessChrome',
 };
 
 if (process.env.API_TOKENS) {
@@ -22,5 +23,10 @@ if (process.env.API_TOKENS) {
 if (process.env.ALLOW_URLS) {
   config.ALLOW_URLS = process.env.ALLOW_URLS.split(',');
 }
+
+if (process.env.USER_AGENT) {
+  config.USER_AGENT = process.env.USER_AGENT;
+}
+
 
 module.exports = config;
