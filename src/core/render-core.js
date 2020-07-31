@@ -74,7 +74,10 @@ async function render(_opts = {}) {
 
   const browser = await createBrowser(opts);
   const page = await browser.newPage();
+  // use ENV variable to set custom browser string. Could also be an parameter in opts?
+  await page.setUserAgent(config.USER_AGENT);
 
+  
   page.on('console', (...args) => logger.info('PAGE LOG:', ...args));
 
   page.on('error', (err) => {
